@@ -1,0 +1,18 @@
+{{define "content"}}
+<div class="content">
+	<h1>Submit Migration</h1>
+	<form action="/sendmsg" method="post">
+		<label for="#n">Your name:</label>
+		<input type="text" id="n" name="n" placeholder="Satoshi Nakamoto"/>
+		<label for="#p">Your personal page:</label>
+		<input type="text" id="p" name="p" placeholder="github.com/username"/>
+		<label for="#m">Message data:</label>
+		<input type="text" id="m" name="m" placeholder="company,url,year,tech_from,tech_to"/>
+		<img class="captcha" src="/captcha?i={{template "captchaid"}}"></img>
+		<input type="hidden" name="i" value="{{template "captchaid"}}"/>
+		<label for="#v">Captcha:</label>
+		<input id="v" type="text" name="v"/>
+		<input type="submit" value="Send"/>
+	</form>
+</div>
+{{end}}
