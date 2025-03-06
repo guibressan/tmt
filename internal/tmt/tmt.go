@@ -2,7 +2,6 @@ package tmt
 
 import (
 	"sort"
-	"strings"
 	"sync"
 )
 
@@ -43,45 +42,26 @@ func processLazy() {
 		yearmig = append(yearmig, v)
 		yearmap[int16(v.Year)] = yearmig
 	}
-	repl := strings.NewReplacer(
-		"Javascript", "JavaScript",
-		"Typescript", "TypeScript",
-		"ReactJS", "React",
-		"htmx", "HTMX",
-		"Golang", "Go",
-		".NET", "DotNET",
-		"c++", "CPP",
-		"C++", "CPP",
-		// "/", "/",
-		"+", "/",
-	)
 	for _, v := range migrations {
-		splits := strings.Split(v.Description, " ")
-		from := splits[1]
-		from = repl.Replace(from)
-		fromSplitted := strings.Split(from, "/")
-		to := splits[3]
-		to = repl.Replace(to)
-		toSplitted := strings.Split(to, "/")
-		for _, v := range fromSplitted {
-			if v == "?" {
+		for _, w := range v.From {
+			if w == "unknown" {
 				continue
 			}
-			f := frommap[v]
+			f := frommap[Tech[w]]
 			f++
-			frommap[v] = f
+			frommap[Tech[w]] = f
 		}
-		for _, v := range toSplitted {
-			if v == "?" {
+		for _, w := range v.To {
+			if w == "unknown" {
 				continue
 			}
-			t := tomap[v]
+			t := tomap[Tech[w]]
 			t++
-			tomap[v] = t
+			tomap[Tech[w]] = t
 		}
-		for _, v := range fromSplitted {
-			for _, w := range toSplitted {
-				ft := v + " " + w
+		for _, w := range v.From {
+			for _, x := range v.To {
+				ft := Tech[w] + " " + Tech[x]
 				ftCount := fromtomap[ft]
 				ftCount++
 				fromtomap[ft] = ftCount

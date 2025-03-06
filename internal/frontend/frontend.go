@@ -28,9 +28,29 @@ func RenderRoot(w io.Writer, title string, data tmt.ProcessedData) error {
 	`
 	historyYears := &bytes.Buffer{}
 	historyItems := &bytes.Buffer{}
+	descBuf := &bytes.Buffer{}
 	for _, v := range data.Year {
 		for _, w := range v.Migrations {
-			fmt.Fprintf(historyItems, historyRowBase, w.Uri, w.Company, w.Description)
+			descBuf.Reset()
+			descBuf.WriteString("from ")
+			fromLen := len(w.From)
+			for i, v := range w.From {
+				descBuf.WriteString(tmt.Tech[v])
+				if i != fromLen-1 {
+					descBuf.WriteString("/")
+				}
+			}
+			descBuf.WriteString(" to ")
+			toLen := len(w.To)
+			for i, v := range w.To {
+				descBuf.WriteString(tmt.Tech[v])
+				if i != toLen-1 {
+					descBuf.WriteString("/")
+				}
+			}
+			fmt.Fprintf(
+				historyItems, historyRowBase, w.Uri, w.Company, descBuf.String(),
+			)
 		}
 		fmt.Fprintf(historyYears, historyBase, v.Year, historyItems.String())
 		historyItems.Reset()
