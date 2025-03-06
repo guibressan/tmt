@@ -1415,7 +1415,7 @@ var migrations = []migration{
 		"SeventhSense",
 		"https://www.youtube.com/watch?v=8JFiDx6vLKQ",
 		2022,
-		"from AmazonKinesis/Kafka to RedPanda",
+		"from Amazon_Kinesis/Kafka to RedPanda",
 	},
 	{
 		"Hashura",
@@ -1577,7 +1577,7 @@ var migrations = []migration{
 		"AmazonPrimeVideo",
 		"https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90",
 		2023,
-		"from AWS_Lambda to AWS_EC2+ECS",
+		"from AWS_Lambda to Amazon_EC2+Amazon_ECS",
 	},
 	{
 		"Svelte",
@@ -1691,7 +1691,7 @@ var migrations = []migration{
 		"eFishery",
 		"https://www.linkedin.com/feed/update/urn:li:activity:7148876278417215488?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7148876278417215488%29",
 		2024,
-		"from AWS_CloudFront to CloudFlare",
+		"from Amazon_CloudFront to CloudFlare",
 	},
 	{
 		"Vercel",
@@ -1818,5 +1818,54 @@ var migrations = []migration{
 		"https://dagger.io/blog/replaced-react-with-go",
 		2025,
 		"from ReactJS to Golang+WASM",
+	},
+	// Added by the maintainer
+	{
+		"PayU",
+		"https://medium.com/payu-engineering/seamless-vault-migration-moving-from-consul-to-raft-with-minimal-downtime-54cfbc15ee3c",
+		2025,
+		"from Consul to Raft",
+	},
+	{
+		"Honeybadger",
+		"https://www.honeybadger.io/blog/sidekiq-to-karafka",
+		2025,
+		"from Sidekiq to Kafka",
+	},
+	{
+		"Tractian",
+		"https://www.scylladb.com/2025/03/04/tractian-migrate-mongodb-scylladb/",
+		2025,
+		"from MongoDB to ScyllaDB",
+	},
+	{
+		"Slice",
+		"https://engineering.sliceit.com/seamlessly-migrating-from-mongodb-to-postgresql-leveraging-data-platform-for-scalable-success-404e2577a47b",
+		2025,
+		"from MongoDB to PostgreSQL",
+	},
+	{
+		"AVEQ",
+		"https://aveq.info/modernizing-our-video-analytics-stack-from-rails-to-node-js",
+		2025,
+		"from Ruby/RubyOnRails to Typescript/Express",
+	},
+	{
+		"Cloudflare Developer Documentation",
+		"https://blog.cloudflare.com/open-source-all-the-way-down-upgrading-our-developer-documentation",
+		2025,
+		"from Go/Hugo to TypeScript/Astro",
+	},
+	{
+		"Aquis Stock Exchange",
+		"https://blog.cloudflare.com/open-source-all-the-way-down-upgrading-our-developer-documentation",
+		2025,
+		"from self-managed/own-datacenter to Cloud/AWS",
+	},
+	{
+		"Checkly",
+		"https://www.checklyhq.com/blog/heroku-to-aws-migration",
+		2025,
+		"from Heroku to AWS",
 	},
 }

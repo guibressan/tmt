@@ -44,6 +44,8 @@ func processLazy() {
 		yearmap[int16(v.Year)] = yearmig
 	}
 	repl := strings.NewReplacer(
+		"Javascript", "JavaScript",
+		"Typescript", "TypeScript",
 		"ReactJS", "React",
 		"htmx", "HTMX",
 		"Golang", "Go",
