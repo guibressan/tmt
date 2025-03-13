@@ -3660,6 +3660,17 @@ var migrations = []migration{
 			"aws",
 		},
 	},
+	{
+		Company: "Microsoft TypeScript Compiler",
+		Uri:     "https://visualstudiomagazine.com/Articles/2025/03/11/Microsoft-Ports-TypeScript-to-Go-for-10x-Native-Performance-Gains.aspx",
+		Year:    2025,
+		From: []string{
+			"typescript",
+		},
+		To: []string{
+			"go",
+		},
+	},
 }
 
 type migration struct {
